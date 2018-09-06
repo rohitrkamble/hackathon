@@ -3,4 +3,5 @@ interface Task {
     category: string
     time: string
     status: string
+    data: string
 }

@@ -26,6 +26,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskService.getTasks().subscribe(tasks => {
+      tasks.forEach(task => {
+        if (task.data) {
+          // TODO
+          console.log(JSON.parse(task.data))
+        }
+      })
       this.dataSet = tasks
     })
   }
