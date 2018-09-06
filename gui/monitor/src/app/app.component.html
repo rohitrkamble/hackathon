@@ -1,0 +1,23 @@
+<!-- NG-ZORRO -->
+<h1>Morning Check Report</h1>
+<nz-table #basicTable [nzData]="dataSet">
+  <thead  (nzSortChange)="sort($event)" nzSingleSort>
+    <tr>
+      <th nzShowSort nzShowFilter>Time</th>
+      <th nzShowSort nzShowFilter>Description</th>
+      <th nzShowSort nzShowFilter>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{data.time}}</td>
+      <td>{{data.description}}</td>
+      <td>{{data.status}}</td>
+      <td>
+        <a>Action </a>
+        <a>Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
