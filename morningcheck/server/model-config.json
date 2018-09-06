@@ -36,11 +36,11 @@
     "dataSource": "db",
     "public": false
   },
-  "task": {
+  "Task": {
     "dataSource": "db",
     "public": true
   },
-  "developer": {
+  "Developer": {
     "dataSource": "db",
     "public": true
   }

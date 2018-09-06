@@ -1,6 +1,6 @@
 {
-  "name": "task",
-  "plural": "tasks",
+  "name": "Task",
+  "plural": "Tasks",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -18,6 +18,9 @@
     "category": {
       "type": "string"
     },
+    "environment": {
+      "type": "string"
+    },
     "description": {
       "type": "string"
     },
@@ -31,7 +34,37 @@
     }
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
+  "relations": {
+    "developer": {
+      "type": "belongsTo",
+      "model": "Developer",
+      "foreignKey": "submitBy"
+    }
+  },
+  "acls": [{
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

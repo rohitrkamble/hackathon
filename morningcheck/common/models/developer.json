@@ -1,7 +1,7 @@
 {
-  "name": "developer",
-  "plural": "developers",
-  "base": "PersistedModel",
+  "name": "Developer",
+  "plural": "Developers",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -17,7 +17,34 @@
     }
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
+  "relations": {
+    "task": {
+      "type": "hasMany",
+      "model": "Task",
+      "foreignKey": "submitBy"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "login"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "logout"
+    }
+  ],
   "methods": {}
 }
