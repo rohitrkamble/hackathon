@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from './tasks.service';
+import { SwitchView } from '@angular/common/src/directives/ng_switch';
 
 interface Task {
   description: string
@@ -37,6 +38,24 @@ export class AppComponent implements OnInit {
   }
 
   dataSet: Task[] = []
+
+  getColor(status: String) {
+    let color = 'black'
+    switch (status) {
+      case 'OK':
+        color = 'green'
+        break;
+      case 'Caution':
+        color = 'orange'
+        break;
+      case 'Error':
+        color = 'red'
+        break;
+    }
+    return {
+      'color': color
+    }
+  }
 
   sort(sort: { key: string, value: string }): void {
     //this.sortName = sort.key;
